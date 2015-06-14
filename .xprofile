@@ -1,0 +1,12 @@
+# -*- shell-script -*-
+# Set up wallpaper symlink
+artwork_dir=$(nix-instantiate --eval -E '(import <nixpkgs> {}).nixos-artwork.outPath' | grep -o '[^"]*')
+wallpaper="${artwork_dir}"/share/artwork/kde/share/wallpapers/nixos-stripes/nixos-stripes.png
+
+[ -e "${wallpaper}" ] &&
+    ln -sf "${wallpaper}" "${HOME}"/.local/share/wallpaper.png
+
+GTK_DATA_PREFIX=$(nix-instantiate --eval -E '(import <nixpkgs> {}).gnome_themes_standard.outPath' | grep -o '[^"]*')
+TERMINAL=urxvtc
+
+export GTK_DATA_PREFIX TERMINAL

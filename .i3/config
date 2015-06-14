@@ -8,7 +8,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # Launching utilities:
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec gtkmenu_run
 bindsym $mod+shift+p exec --no-startup-id i3-dmenu-desktop --dmenu=gtkmenu
 bindsym $mod+p exec gmrun
 
@@ -146,9 +146,6 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # jump to most recent urge window
 bindsym $mod+x [urgent=latest] focus

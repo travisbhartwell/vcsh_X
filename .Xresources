@@ -9,11 +9,14 @@ URxvt*borderless:	true
 URxvt*loginShell:	true
 URxvt*urgentOnBell: 	true
 
-URxvt*perl-ext-common:  default,url-select
+URxvt*perl-ext-common:  default,url-select,clipboard
 URxvt*url-select.launcher: /run/current-system/sw/bin/xdg-open
 URxvt*url-select.underline: true
 URxvt*url-select.button: 1
 URxvt*keysym.M-u:	perl:url-select:select_next
+URxvt*clipboard*autocopy: true
+URxvt*keysym.Shift-Delete: perl:clipboard:copy
+URxvt*keysym.Shift-Insert: perl:clipboard:paste
 
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background

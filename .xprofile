@@ -6,6 +6,12 @@ wallpaper="${artwork_dir}"/share/artwork/kde/share/wallpapers/nixos-stripes/nixo
 [ -e "${wallpaper}" ] &&
     ln -sf "${wallpaper}" "${HOME}"/.local/share/wallpaper.png
 
+# Set up pulseaudio.
+# We need the default configuration, plus support for tcp
+# Perhaps this is better done (if possible) with pacmd
+ perl -pe "s/\#(load-module module-native-protocol-tcp).*$/\1 auth-ip-acl=127.0.0.1;192.168.0.0\/16/g" /etc/pulse/default.pa > ~/.config/pulse/default.pa
+
+# Needed environment variables
 GTK_DATA_PREFIX=$(nix-instantiate --eval -E '(import <nixpkgs> {}).gnome_themes_standard.outPath' | grep -o '[^"]*')
 TERMINAL=urxvtc
 

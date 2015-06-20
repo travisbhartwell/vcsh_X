@@ -2,7 +2,7 @@
 !/.gitignore.d
 !/.gitignore.d/X
 !/.i3
-!/.i3/config
+!/.i3/*
 !/.i3status.conf
 !/.Xresources
 !/.xprofile
@@ -13,3 +13,4 @@
 !/.config/gtk-3.0/settings.ini
 !/.gtkrc-2.0
 !/.dmrc
+!/.conkyrc

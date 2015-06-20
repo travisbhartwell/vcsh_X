@@ -7,6 +7,8 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
+
 # Launching utilities:
 bindsym $mod+d exec gtkmenu_run
 bindsym $mod+shift+p exec --no-startup-id i3-dmenu-desktop --dmenu=gtkmenu
@@ -26,6 +28,19 @@ mode "launchers" {
 }
 
 bindsym $mod+Return mode "launchers"
+
+# Music
+set $music Music (n) next track, (b) prev track, (SPC) pause, (p) play, (s) stop, (Mod+m) ncmcpp
+mode "$music" {
+    bindsym n exec mpc -q next, mode "default"
+    bindsym b exec mpc -q prev, mode "default"
+    bindsym space exec mpc -q pause, mode "default"
+    bindsym p exec mpc -q play, mode "default"
+    bindsym s exec mpc -q stop, mode "default"
+    bindsym $mod+m exec --no-startup-id urxvt -name scratchpad -e ncmpcpp, mode "default"
+}
+
+bindsym $mod+m mode "$music"
 
 # Workspace Variables
 set $WS1 01-chat
@@ -131,7 +146,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Logout, reboot, shutdown
-set $Locker i3lock -i ~/.local/share/wallpaper.png && sleep 1
+set $Locker i3lock -i ~/.local/shareo/wallpaper.png && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown
 mode "$mode_system" {
@@ -176,7 +191,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    status_command i3status
+    status_command /home/nafai/.i3/conky-i3bar
     font pango:DejaVu Sans Mono 8
 }
 

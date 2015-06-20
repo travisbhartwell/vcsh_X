@@ -38,6 +38,10 @@ mode "$music" {
     bindsym p exec mpc -q play, mode "default"
     bindsym s exec mpc -q stop, mode "default"
     bindsym $mod+m exec --no-startup-id urxvt -name scratchpad -e ncmpcpp, mode "default"
+
+    # Cancel
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+m mode "$music"
@@ -153,7 +157,7 @@ mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

@@ -19,7 +19,7 @@ mode "launchers" {
     bindsym t exec i3-sensible-terminal, mode "default"
     bindsym e exec emacs, mode "default"
     bindsym b exec chromium, mode "default"
-    bindsym i exec irc, mode "default"
+    bindsym i exec ~/.i3/launch-irc, mode "default"
     bindsym m exec travis-hartwell-mail, mode "default"
 
     # Cancel

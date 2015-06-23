@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+exec urxvt -name irc -e ssh nafai@travishartwell.net -t \
+     "env TERM=screen-256color tmux attach-session -t irc"

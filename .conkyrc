@@ -25,7 +25,7 @@ if_up_strictness address
 use_spacer left
 
 # Force UTF8? note that UTF8 support required XFT
-override_utf8_locale yes
+override_utf8_locale no
 
 # number of cpu samples to average
 # set to 1 to disable averaging
@@ -36,11 +36,12 @@ mpd_host 127.0.0.1
 mpd_port 6600
 
 # Stuff after 'TEXT' will be formatted on screen
-TEXT
 # JSON for i3bar
- [${if_match "$nodename" == "shedemei"} { "full_text" : "$if_mpd_playing ♪ ${mpd_smart 75} $endif", "color":"\#ffffff"}, ${endif}
-  { "full_text" : "/ ${fs_free /} Free" , "color" : "\#ffffff" },
-  ${if_match "$nodename" == "shedemei"} { "full_text" : "Home ${fs_free /home} Free" , "color" : "\#ffffff" }, ${endif}
-  { "full_text" : "RAM ${memperc}%" , "color" :
-    ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
-  { "full_text" : "${time %a,} ${time %e %B %G} ${time %r}", "color" : "\#ffffff" }],
+# [${if_match "$nodename" == "shedemei"} { "full_text" : "$if_mpd_playing ♪ ${mpd_smart 75} $endif", "color":"\#ffffff"}, ${endif}
+#  { "full_text" : "/ ${fs_free /} Free" , "color" : "\#ffffff" },
+#  ${if_match "$nodename" == "shedemei"} { "full_text" : "Home ${fs_free /home} Free" , "color" : "\#ffffff" }, ${endif}
+#  { "full_text" : "RAM ${memperc}%" , "color" :
+#    ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
+#  { "full_text" : "${time %a,} ${time %e %B %G} ${time %r}", "color" : "\#ffffff" }],
+TEXT
+[{ "full_text" : "${time %a,} ${time %e %B %G} ${time %r}", "color" : "\#ffffff" }],

@@ -47,10 +47,10 @@ mode "$music" {
 bindsym $mod+m mode "$music"
 
 # Workspace Variables
-set $WS1 01-chat
-set $WS2 02-web
-set $WS3 03-development
-set $WS4 04-media
+set $WS1 01-
+set $WS2 02-
+set $WS3 03-
+set $WS4 04-
 set $WS5 05-scratch
 
 # switch to workspace
@@ -140,9 +140,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 # focus the child container
-# bindsym $mod+d focus child
+bindsym $mod+shift+a focus child
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -196,7 +196,7 @@ bindsym $mod+r mode "resize"
 
 bar {
     status_command /home/nafai/.i3/conky-i3bar
-    font pango:Source Code Pro 8
+    font pango:Source Code Pro, Awesome 8
 }
 
 # Startup items
@@ -204,3 +204,4 @@ exec --no-startup-id feh --bg-scale ~/.local/share/wallpaper.png
 exec --no-startup-id pa-applet --disable-notifications
 exec --no-startup-id urxvtd -q -f -o
 exec --no-startup-id compton -bcCGf -i 0.8 -e 0.8 --sw-opti
+exec --no-startup-id udiskie -t

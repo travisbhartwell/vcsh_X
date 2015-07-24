@@ -1,10 +1,7 @@
 # -*- shell-script -*-
-# Set up wallpaper symlink
-artwork_dir=$(nix-instantiate --eval -E '(import <nixpkgs> {}).nixos-artwork.outPath' | grep -o '[^"]*')
-wallpaper="${artwork_dir}"/share/artwork/kde/share/wallpapers/nixos-stripes/nixos-stripes.png
-
-[ -e "${wallpaper}" ] &&
-    ln -sf "${wallpaper}" "${HOME}"/.local/share/wallpaper.png
+# Download wallpaper since it's no longer packaged
+curl https://raw.githubusercontent.com/NixOS/nixos-artwork/master/kde/share/wallpapers/nixos-stripes/nixos-stripes.png \
+     -o "${HOME}/.local/share/wallpaper.png"
 
 # Set up pulseaudio.
 # We need the default configuration, plus support for tcp

@@ -2,5 +2,5 @@
 
 SESSIONNAME=irc
 
-urxvt -name irc -e ssh -R 2222:localhost:22 nafai@travishartwell.net -t \
+urxvt -name irc -e ssh -R 2222:localhost:22 -L 8001:localhost:8001 nafai@travishartwell.net -t \
      "TERM=screen-256color; SESSIONNAME=irc; tmux attach-session -t $SESSIONNAME || tmux new-session -s $SESSIONNAME"

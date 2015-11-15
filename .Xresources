@@ -1,5 +1,5 @@
 URxvt.scrollBar:	off
-URxvt*font:		xft:Source Code Pro:style=Book:size=11:antialias=true:hinting3true
+URxvt*font:		xft:Source Code Pro:style=Book:size=11:antialias=true:hinting=true
 URxvt*boldFont:		xft:Source Code Pro:style=Bold:size=11:antialias=true:hinting=true
 URxvt*italicFont:	xft:Source Code Pro:style=Oblique:size=11:antialias=true:hinting=true
 URxvt*boldItalicFont:	xft:Source Code Pro:style=Bold Oblique:size=11:antialias=true:hinting=true

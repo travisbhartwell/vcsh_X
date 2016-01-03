@@ -34,7 +34,7 @@ set $music Music (n) next track, (b) prev track, (SPC) pause, (p) play, (s) stop
 mode "$music" {
     bindsym n exec mpc -q next, mode "default"
     bindsym b exec mpc -q prev, mode "default"
-    bindsym space exec mpc -q pause, mode "default"
+    bindsym space exec mpc -q toggle, mode "default"
     bindsym p exec mpc -q play, mode "default"
     bindsym s exec mpc -q stop, mode "default"
     bindsym $mod+m exec --no-startup-id urxvt -name scratchpad -e ncmpcpp, mode "default"
@@ -47,11 +47,12 @@ mode "$music" {
 bindsym $mod+m mode "$music"
 
 # Workspace Variables
-set $WS1 01-
-set $WS2 02-
-set $WS3 03-
-set $WS4 04-
-set $WS5 05-scratch
+set $WS1 01-
+set $WS2 02-
+set $WS3 03-
+set $WS4 04-
+set $WS5 05-
+set $WS6 06-scratch
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -90,16 +91,11 @@ bindsym $mod+z workspace back_and_forth
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# Volume
-bindsym --release Mod1+KP_8 exec --no-startup-id xdotool key --clearmodifiers XF86AudioRaiseVolume
-bindsym --release Mod1+KP_2 exec --no-startup-id xdotool key --clearmodifiers XF86AudioLowerVolume
-bindsym --release Mod1+KP_0 exec --no-startup-id xdotool key --clearmodifiers XF86AudioMute
-
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -108,10 +104,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -119,11 +115,19 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+shift+h split h
+set $mode_split split (h) horizontal, (v) vertical
+mode "$mode_split" {
+    # split in horizontal orientation
+    bindsym h split h, mode "default"
 
-# split in vertical orientation
-bindsym $mod+shift+v split v
+    # split in vertical orientation
+    bindsym v split v, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+s mode "$mode_split"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen

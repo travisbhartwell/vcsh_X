@@ -8,12 +8,13 @@ curl https://raw.githubusercontent.com/NixOS/nixos-artwork/master/kde/share/wall
 # Perhaps this is better done (if possible) with pacmd
 perl -pe "s/\#(load-module module-native-protocol-tcp).*$/\1 auth-ip-acl=127.0.0.1;192.168.0.0\/16/g" /etc/pulse/default.pa > ~/.config/pulse/default.pa
 
-# Set Caps Lock as Escape
-xmodmap -e "clear lock"
-xmodmap -e "keysym Caps_Lock = Escape"
-
 # Needed environment variables
 GTK_DATA_PREFIX=$(nix-instantiate --eval -E '(import <nixpkgs> {}).gnome_themes_standard.outPath' | grep -o '[^"]*')
 TERMINAL=urxvtc
 
-export GTK_DATA_PREFIX TERMINAL
+# This is how GPG Agent is used now
+gpg-agent-connect /bye
+GPG_TTY=$(tty)
+unset SSH_AGENT_PID
+SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+export GTK_DATA_PREFIX TERMINAL GPG_TTY SSH_AUTH_SOCK

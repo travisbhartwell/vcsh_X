@@ -1,3 +1,6 @@
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 48
+! Set cursor size
 URxvt.scrollBar:	off
 URxvt*font:		xft:Source Code Pro:style=Book:size=13:antialias=true:hinting=true
 URxvt*boldFont:		xft:Source Code Pro:style=Bold:size=13:antialias=true:hinting=true

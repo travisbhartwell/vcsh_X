@@ -13,7 +13,7 @@ GTK_DATA_PREFIX=$(nix-instantiate --eval -E '(import <nixpkgs> {}).gnome_themes_
 TERMINAL=urxvtc
 
 # This is how GPG Agent is used now
-gpg-agent-connect /bye
+gpg-connect-agent /bye
 GPG_TTY=$(tty)
 unset SSH_AGENT_PID
 SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
